@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمود أبو شعر | معرض أعمال الموشن جرافيك والـ 3D 🎬</title>
+    <style>
+        /* === تصميم الهوية البصرية النيون والداكنة للموقع === */
+        :root {
+            --bg-color: #060608;
+            --card-bg: rgba(22, 22, 27, 0.7);
+            --neon-cyan: #00e5ff;
+            --neon-magenta: #ff0055;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a5;
+        }
 
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* شريط التنقل العلوي الاحترافي */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(6, 6, 8, 0.85);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            width: 84%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--neon-magenta), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+
+        /* نظام الصفحات المتنقلة الذكي */
+        .page {
+            display: none;
+            padding: 120px 8% 60px 8%;
+            min-height: 80vh;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* تصميم عناصر معرض الأعمال (الفيديو الرئيسي) */
+        .hero-section {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.15);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            background: #000;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        /* تصميم فورم الاستبيان الإبداعي */
+        .survey-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .survey-container h2 {
+            text-align: center;
+            font-
