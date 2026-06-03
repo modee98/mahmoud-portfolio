@@ -134,4 +134,276 @@
 
         .survey-container h2 {
             text-align: center;
-            font-
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #e0e0e5;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+
+        select.form-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 20px center;
+            background-size: 16px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, var(--neon-cyan), #00b2c4);
+            color: #060608;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 229, 255, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
+        }
+
+        .status-msg {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        /* استايلات جدول لوحة العرض السرية */
+        .table-wrapper { overflow-x: auto; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); margin-top: 25px; }
+        table { width: 100%; border-collapse: collapse; text-align: right; background-color: rgba(0, 0, 0, 0.3); }
+        th { background: linear-gradient(90deg, var(--neon-magenta), #b3003b); color: #ffffff; padding: 16px 20px; font-weight: 700; font-size: 1.05rem; }
+        th:nth-child(even) { background: linear-gradient(90deg, #b3003b, var(--neon-magenta)); }
+        td { padding: 16px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: #e0e0e5; font-size: 0.98rem; line-height: 1.6; }
+        tr:hover td { background-color: rgba(0, 229, 255, 0.04); color: #ffffff; transition: all 0.2s ease; }
+        .badge-program { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.85rem; font-weight: bold; background: rgba(255,255,255,0.05); color: var(--neon-cyan); border: 1px solid rgba(0,229,255,0.2); }
+    </style>
+</head>
+<body>
+
+    <!-- شريط القائمة الرئيسي -->
+    <header>
+        <div class="logo">MAHMOUD ART</div>
+        <ul class="nav-links">
+            <li><a id="link-home" class="active" onclick="switchPage('home')">الرئيسية</a></li>
+            <li><a id="link-survey" onclick="switchPage('survey')">استبيان فني</a></li>
+        </ul>
+    </header>
+
+    <!-- الصفحة الرئيسية: استعراض الفيديو الإبداعي والمحتوى الترحيبي المعزز -->
+    <div id="page-home" class="page active">
+        <div class="hero-section">
+            <h1 style="color: #ffffff; text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);">معرض أعمال محمود أبو شعر 🎬</h1>
+            <p style="color: #a0a0a5; font-size: 1.2rem; margin-bottom: 30px;">أهلاً بك في فضاء الإبداع الرقمي ثلاثي الأبعاد والموشن جرافيك.</p>
+            
+            <h2 style="font-size: 1.8rem; margin-top: 40px; color: #00e5ff;">مشروع المدن الذكية | Smart Cities</h2>
+            <p>رؤية بصرية مستقبلية تم تصميمها وتحريكها بالكامل باستخدام Blender 3D و After Effects.</p>
+            
+            <div class="video-container" style="margin-top: 20px;">
+                <video controls autoplay loop muted playsinline preload="auto">
+                    <source src="smart-cities.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل هذا الفيديو يا فنان.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- صفحة الاستبيان التفاعلي لقاصدي التعاون -->
+    <div id="page-survey" class="page">
+        <div class="survey-container">
+            <h2>شاركني شغفك الفني 🎨🚀</h2>
+            <form id="surveyForm">
+                <div class="form-group">
+                    <label>الاسم الكريم:</label>
+                    <input type="text" name="user_name" class="form-control" placeholder="اكتب اسمك هنا..." required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني للارتباط:</label>
+                    <input type="email" name="user_email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>ما هو برنامجك المفضل في الإنتاج البصري؟</label>
+                    <select name="fav_program" class="form-control" required>
+                        <option value="" disabled selected>اختر برنامجك الملهم...</option>
+                        <option value="After Effects">Adobe After Effects</option>
+                        <option value="Blender 3D">Blender 3D</option>
+                        <option value="Premiere Pro">Adobe Premiere Pro</option>
+                        <option value="Cinema 4D">Cinema 4D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>اقتراحاتك أو فكرة تعاون تطمح لمشاركتها معي (اختياري):</label>
+                    <textarea name="suggestion" class="form-control" placeholder="اكتب مذكرتك الإبداعية هنا..."></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="submit-btn">إرسال الاستبيان الحين 🚀</button>
+                <div id="survey-status-msg" class="status-msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- === جافا سكريبت التفاعلية المحدثة للاتصال مع سيرفر Node.js (Render) === -->
+    <script>
+    function switchPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => { page.classList.remove('active'); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.classList.remove('active'); });
+        
+        const targetPage = document.getElementById('page-' + pageId);
+        if(targetPage) targetPage.classList.add('active');
+        
+        const targetLink = document.getElementById('link-' + pageId);
+        if(targetLink) targetLink.classList.add('active');
+        
+        window.scrollTo(0, 0);
+
+        // إذا كان الرابط يحتوي على متغير السحر، نعرض واجهة كلمة السر تلقائياً
+        if(window.location.search.includes('show_me_the_magic=true')) {
+            showAdminLogin();
+        }
+    }
+
+    // إرسال بيانات الاستبيان للسيرفر عبر الـ Fetch API الفوري دون عمل تحديث (Refresh) للرابط
+    document.getElementById('surveyForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        const form = this;
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('survey-status-msg');
+
+        submitBtn.innerText = "جاري الإرسال الفني... ⏳";
+        submitBtn.disabled = true;
+
+        const formData = new URLSearchParams(new FormData(form));
+
+        fetch('/submit-survey', { 
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            statusMsg.innerHTML = data;
+            statusMsg.style.display = 'block';
+            submitBtn.innerText = "إرسال الاستبيان الحين 🚀";
+            submitBtn.disabled = false;
+            if(data.includes("بنجاح")) form.reset();
+        })
+        .catch(error => {
+            statusMsg.innerHTML = "حدث خطأ في الاتصال بالسيرفر ⚠️";
+            statusMsg.style.display = 'block';
+            submitBtn.innerText = "إرسال الاستبيان الحين 🚀";
+            submitBtn.disabled = false;
+        });
+    });
+
+    // دالة بناء لوحة الإدارة السرية والجدول التفاعلي بعد كتابة كلمة المرور الصحيحة
+    function showAdminLogin() {
+        const homePage = document.getElementById('page-home');
+        homePage.innerHTML = `
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 20px;">
+                <div id="adminBox" style="width: 100%; max-width: 400px; background: rgba(22, 22, 27, 0.9); border: 1px solid rgba(0, 229, 255, 0.2); padding: 40px; border-radius: 24px; text-align: center;">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 25px; background: linear-gradient(45deg, #ff0055, #00e5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">لوحة الإدارة المحمية 🔐</h2>
+                    <div id="adminError" style="color: #ff0055; font-weight: bold; margin-bottom: 15px; font-size: 0.95rem; display:none;"></div>
+                    <form id="adminForm">
+                        <input type="password" id="adminPass" class="form-control" placeholder="أدخل كلمة السر هنا..." style="width: 100%; text-align: center; margin-bottom: 20px;" required autofocus>
+                        <button type="submit" class="submit-btn" style="background:linear-gradient(90deg, #00e5ff, #00b2c4)">فتح اللوحة السحرية 🔓</button>
+                    </form>
+                    <a href="index.html" style="display: inline-block; margin-top: 20px; color: #a0a0a5; text-decoration: none; font-size: 0.9rem;">← العودة للموقع</a>
+                </div>
+                
+                <div id="adminTableContainer" style="display:none; width:100%; max-width:1100px; background: rgba(22, 22, 27, 0.9); border: 1px solid rgba(0, 229, 255, 0.15); padding: 40px; border-radius: 28px;">
+                    <a href="index.html" style="color: #00e5ff; text-decoration: none; font-weight: bold;">← العودة للموقع الرئيسي</a>
+                    <h1 style="font-size: 2.4rem; background: linear-gradient(45deg, #ff0055, #00e5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin-bottom: 35px; font-weight: 800;">لوحة البيانات الإبداعية الخاصة بك 📊</h1>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>التاريخ والوقت</th>
+                                    <th>الاسم الكريم</th>
+                                    <th>البريد الإلكتروني</th>
+                                    <th>البرنامج الملهم</th>
+                                    <th>الاقتراحات والملاحظات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>`;
+
+        // إرسال كلمة السر للسيرفر ومطابقتها بشكل آمن مخفي (POST)
+        document.getElementById('adminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('adminPass').value;
+            const errorDiv = document.getElementById('adminError');
+
+            fetch('/admin-data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ admin_password: password })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    document.getElementById('adminBox').style.display = 'none';
+                    document.getElementById('adminTableContainer').style.display = 'block';
+                    document.getElementById('tableBody').innerHTML = data.rows || '<tr><td colspan="5" style="text-align:center; padding:30px; color:#a0a0a5;">لا توجد استبيانات حالياً.</td></tr>';
+                } else {
+                    errorDiv.innerText = data.msg;
+                    errorDiv.style.display = 'block';
+                }
+            });
+        });
+    }
+
+    // فحص الرابط تلقائياً عند تحميل الصفحة لأول مرة
+    if(window.location.search.includes('show_me_the_magic=true')) {
+        switchPage('home');
+    }
+    </script>
+</body>
+</html>
