@@ -426,8 +426,29 @@ tr:hover td { background-color: rgba(0, 229, 255, 0.04); color: #ffffff; transit
 @media (max-width: 768px) { 
     .hero h1 { font-size: 2.5rem; } 
     .hero p { font-size: 1.1rem; } 
-    .navbar { padding: 15px 20px; flex-direction: row-reverse; } 
     .home-section h2 { font-size: 2rem; } 
+    
+    /* التعديلات السحرية لشريط التنقل على الجوال */
+    .navbar { 
+        padding: 12px 15px; 
+        flex-direction: column; /* ترتيب اللوجو والروابط فوق بعض */
+        gap: 12px; /* المسافة بين اللوجو والروابط */
+    } 
+    .nav-logo {
+        font-size: 1.5rem; /* حجم متناسق للوجو */
+    }
+    .nav-links {
+        gap: 15px; /* تقليل المسافة بين الروابط لتناسب الشاشة */
+        justify-content: center; /* توسيط الروابط في المنتصف */
+        width: 100%;
+    }
+    .nav-links a {
+        font-size: 0.95rem; /* تصغير الخط قليلاً ليصبح مرتباً */
+    }
+    /* إزاحة محتوى الصفحة للأسفل قليلاً لكي لا يغطيه شريط التنقل الجديد */
+    .page {
+        padding-top: 130px;
+    }
 }
 </style>
 </head>
