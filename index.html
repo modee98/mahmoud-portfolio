@@ -687,22 +687,22 @@ document.getElementById('surveyForm').addEventListener('submit', function(e) {
     });
 });
 
-// اللوحة السرية المدمجة في الـ JavaScript والمتوافقة مع Node.js
+// دالة لوحة التحكم والمطابقة السرية المحدثة لضبط محاذاة الحقول بصرياً
 function showAdminLogin() {
     const homePage = document.getElementById('page-home');
     homePage.innerHTML = `
-        <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 20px;">
-            <div id="adminBox" style="width: 100%; max-width: 400px; background: rgba(22, 22, 27, 0.9); border: 1px solid rgba(0, 229, 255, 0.2); padding: 40px; border-radius: 24px; text-align: center;">
+        <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 20px; box-sizing: border-box;">
+            <div id="adminBox" style="width: 100%; max-width: 400px; background: rgba(22, 22, 27, 0.9); border: 1px solid rgba(0, 229, 255, 0.2); padding: 40px; border-radius: 24px; text-align: center; box-sizing: border-box;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 25px; background: linear-gradient(45deg, #ff0055, #00e5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">لوحة الإدارة المحمية 🔐</h2>
                 <div id="adminError" style="color: #ff0055; font-weight: bold; margin-bottom: 15px; font-size: 0.95rem; display:none;"></div>
-                <form id="adminForm">
-                    <input type="password" id="adminPass" class="form-control" placeholder="أدخل كلمة السر هنا..." style="width: 100%; text-align: center; margin-bottom: 20px;" required autofocus>
-                    <button type="submit" class="submit-btn" style="background:linear-gradient(90deg, #00e5ff, #00b2c4)">فتح اللوحة السحرية 🔓</button>
+                <form id="adminForm" style="width: 100%; display: flex; flex-direction: column; align-items: center; box-sizing: border-box;">
+                    <input type="password" id="adminPass" class="form-control" placeholder="أدخل كلمة السر هنا..." style="width: 100%; text-align: center; margin-bottom: 20px; box-sizing: border-box;" required autofocus>
+                    <button type="submit" class="submit-btn" style="background:linear-gradient(90deg, #00e5ff, #00b2c4); width: 100%; box-sizing: border-box;">فتح اللوحة السحرية 🔓</button>
                 </form>
                 <a href="index.html" style="display: inline-block; margin-top: 20px; color: #a0a0a5; text-decoration: none; font-size: 0.9rem;">← العودة للموقع</a>
             </div>
             
-            <div id="adminTableContainer" style="display:none; width:100%; max-width:1100px; background: rgba(22, 22, 27, 0.9); border: 1px solid rgba(0, 229, 255, 0.15); padding: 40px; border-radius: 28px;">
+            <div id="adminTableContainer" style="display:none; width:100%; max-width:1100px; background: rgba(22, 22, 27, 0.9); border: 1px solid rgba(0, 229, 255, 0.15); padding: 40px; border-radius: 28px; box-sizing: border-box;">
                 <a href="index.html" style="color: #00e5ff; text-decoration: none; font-weight: bold;">← العودة للموقع الرئيسي</a>
                 <h1 style="font-size: 2.4rem; background: linear-gradient(45deg, #ff0055, #00e5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin-bottom: 35px; font-weight: 800;">لوحة البيانات الإبداعية الخاصة بك 📊</h1>
                 <div class="table-wrapper">
