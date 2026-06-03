@@ -385,11 +385,11 @@ text-align: center;
 padding: 15px;
 border-radius: 12px;
 font-weight: bold;
-background: rgba(0, 229, 255, 0.1);
-border: 1px solid var(--secondary);
+background: rgba(255, 255, 255, 0.05);
 color: var(--secondary);
 margin-bottom: 20px;
 display: none;
+border: 1px solid var(--secondary);
 }
 
 .about-container, .software-container { max-width: 1000px; margin: 40px auto; padding: 0 5%; }
@@ -414,7 +414,7 @@ display: none;
 .back-btn { display: inline-block; margin-top: 30px; color: var(--primary); text-decoration: none; font-weight: bold; transition: transform 0.3s; cursor: pointer; }
 .back-btn:hover { transform: translateX(-5px); }
 
-/* تنسيقات واجهة لوحة العرض والجدول السرية المحدثة */
+/* تنسيقات الجدول السرية */
 .table-wrapper { overflow-x: auto; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); margin-top: 25px; }
 table { width: 100%; border-collapse: collapse; text-align: right; background-color: rgba(0, 0, 0, 0.3); }
 th { background: linear-gradient(90deg, var(--primary), #b3003b); color: #ffffff; padding: 16px 20px; font-weight: 700; font-size: 1.05rem; }
@@ -645,15 +645,16 @@ function switchPage(pageId) {
     
     window.scrollTo(0, 0);
 
-    // فحص رابط الحماية والتحكم السري تلقائياً
+    // التحقق من استدعاء اللوحة السرية عبر الـ URL parameter
     if(window.location.search.includes('show_me_the_magic=true')) {
         showAdminLogin();
     }
 }
 
-// معالجة وإرسال بيانات فورم الاستبيان للسيرفر الجديد فوراً دون تحديث الصفحة
+// معالجة إرسال الفورم للـ Endpoint الخاص بالسيرفر
 document.getElementById('surveyForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
+
     const form = this;
     const submitBtn = document.getElementById('submitBtn');
     const statusMsg = document.getElementById('survey-status-msg');
@@ -673,17 +674,20 @@ document.getElementById('surveyForm').addEventListener('submit', function(e) {
         statusMsg.style.display = 'block';
         submitBtn.innerText = "إرسال الاستبيان الحين 🚀";
         submitBtn.disabled = false;
-        if(data.includes("بنجاح")) form.reset();
+        
+        if(data.includes("بنجاح")) {
+            form.reset();
+        }
     })
     .catch(error => {
-        statusMsg.innerHTML = "حدث خطأ في الاتصال بالسيرفر ⚠️";
+        statusMsg.innerHTML = "حدث خطأ في الاتصال بالسيرفر، برجاء المحاولة مرة أخرى ⚠️";
         statusMsg.style.display = 'block';
         submitBtn.innerText = "إرسال الاستبيان الحين 🚀";
         submitBtn.disabled = false;
     });
 });
 
-// دالة لوحة التحكم والمطابقة السرية لكلمة السر وعرض الردود
+// اللوحة السرية المدمجة في الـ JavaScript والمتوافقة مع Node.js
 function showAdminLogin() {
     const homePage = document.getElementById('page-home');
     homePage.innerHTML = `
@@ -742,7 +746,7 @@ function showAdminLogin() {
     });
 }
 
-// التحقق من حالة الرابط عند التشغيل الأول
+// فحص أوتوماتيكي للرابط عند التحميل
 if(window.location.search.includes('show_me_the_magic=true')) {
     switchPage('home');
 }
