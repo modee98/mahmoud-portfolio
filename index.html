@@ -28,15 +28,12 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 
 
 .page { display: none; padding-top: 100px; min-height: calc(100vh - 100px); box-sizing: border-box; }
 .page.active { display: block; animation: customFadeUp 0.5s ease forwards; }
-
 .hero { height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
 .hero h1 { font-size: 4.5rem; margin: 0; line-height: 1.2; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.name-fix { background: none !important; -webkit-background-clip: initial !important; -webkit-text-fill-color: #ffffff !important; }
 .emoji-fix { background: none !important; -webkit-background-clip: initial !important; -webkit-text-fill-color: initial !important; display: inline-block; }
 .hero p { font-size: 1.3rem; color: var(--text-muted); max-width: 700px; line-height: 1.8; margin: 25px 0; }
-.cta-btn { background: linear-gradient(90deg, var(--accent), #d4a017); color: #000; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(255, 189, 0, 0.3); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-.cta-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 189, 0, 0.5); }
-
+.cta-btn { background: linear-gradient(90deg, var(--primary), #d00045); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(255, 0, 85, 0.3); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.cta-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 0, 85, 0.5); }
 .home-section { padding: 90px 8%; max-width: 1200px; margin: 0 auto; }
 .home-section h2 { font-size: 2.8rem; text-align: center; margin-bottom: 20px; background: linear-gradient(90deg, #ffffff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .section-intro-text { text-align: center; color: var(--text-muted); font-size: 1.15rem; max-width: 700px; margin: 0 auto 60px auto; line-height: 1.8; }
@@ -100,6 +97,7 @@ body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 
 .back-btn { display: inline-block; margin-top: 30px; color: var(--primary); text-decoration: none; font-weight: bold; transition: transform 0.3s; cursor: pointer; }
 .back-btn:hover { transform: translateX(-5px); }
 
+/* تنسيقات الجدول */
 .table-wrapper { overflow-x: auto; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); margin-top: 25px; }
 table { width: 100%; border-collapse: collapse; text-align: right; background-color: rgba(0, 0, 0, 0.3); }
 th { background: linear-gradient(90deg, var(--primary), #b3003b); color: #ffffff; padding: 16px 20px; font-weight: 700; font-size: 1.05rem; }
@@ -128,12 +126,26 @@ td { padding: 16px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.04); col
 </nav>
 
 <div id="page-home" class="page active">
+    <!-- المحتوى الخاص بصفحة الرئيسية -->
     <section class="hero">
-        <h1 class="name-fix">يوسف ابوشعر<span class="emoji-fix">🎬</span></h1>
-        <p>أهلاً بك في مساحتي الإبداعية الرقمية، حيث ندمج شغف الفن بأعقد أساليب الحركة لنصنع محتوى مرئياً يخطف الأنظار ويترك بصمة لا تُنسى في الأذهان.</p>
+        <h1>فن الحركة<span class="emoji-fix">🎬</span><br>وعمق التفاصيل البصرية</h1>
+        <p>أهلاً بك في مساحتي الإبداعية الرقمية، حيث ندمج شغف الفن بأعقد أساليب الحركة لنصنع محتوى مرئياً يخطف الأنظار.</p>
         <a href="#" class="cta-btn" onclick="event.preventDefault(); switchPage('services')">اكتشف خدماتي <span class="emoji-fix">🚀</span></a>
     </section>
+    
+    <!-- قسم الاستبيان -->
+    <section class="survey-section">
+        <h2>شاركني رأيك الفني <span class="emoji-fix">📊✨</span></h2>
+        <div id="survey-status-msg" class="status-msg"></div>
+        <form class="survey-form" id="surveyForm">
+            <input type="text" name="user_name" class="form-control" placeholder="الاسم الكريم" required>
+            <input type="email" name="user_email" class="form-control" placeholder="البريد الإلكتروني" required>
+            <button type="submit" class="submit-btn" id="submitBtn">إرسال الاستبيان الحين 🚀</button>
+        </form>
+    </section>
 </div>
+
+<!-- الصفحات الأخرى (عن، خدماتي) تبقى كما هي بنفس التعديلات في الـ onclick -->
 
 <script>
 function switchPage(pageId) {
@@ -146,7 +158,7 @@ function switchPage(pageId) {
     window.scrollTo(0, 0);
 }
 
-document.getElementById('surveyForm')?.addEventListener('submit', function(e) {
+document.getElementById('surveyForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
     const submitBtn = document.getElementById('submitBtn');
     const statusMsg = document.getElementById('survey-status-msg');
@@ -156,7 +168,7 @@ document.getElementById('surveyForm')?.addEventListener('submit', function(e) {
     fetch('/submit-survey', { method: 'POST', body: new URLSearchParams(new FormData(this)) })
     .then(res => res.text())
     .then(data => {
-        statusMsg.textContent = data;
+        statusMsg.textContent = data; // التعديل الأمني هنا
         statusMsg.style.display = 'block';
         submitBtn.textContent = "إرسال الاستبيان الحين 🚀";
         submitBtn.disabled = false;
