@@ -106,6 +106,7 @@ function renderRows(rows) {
 }
 
 function showAdminLogin() {
+  document.body.classList.add("admin-mode");
   const template = document.getElementById('adminTemplate');
   const homePage = document.getElementById('page-home');
   homePage.innerHTML = '';
