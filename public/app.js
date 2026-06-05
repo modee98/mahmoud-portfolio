@@ -6,8 +6,18 @@ const statusMsg = document.getElementById('survey-status-msg');
 const surveyForm = document.getElementById('surveyForm');
 const submitBtn = document.getElementById('submitBtn');
 
+const isSecretAdminPage = window.location.search.includes("show_me_the_magic=true");
+
+if (isSecretAdminPage) {
+  document.documentElement.classList.add("admin-mode");
+  document.body.classList.add("admin-mode");
+}
+
 function switchPage(pageId) {
+  if (!window.location.search.includes("show_me_the_magic=true")) {
+  document.documentElement.classList.remove("admin-mode");
   document.body.classList.remove("admin-mode");
+}
   pages.forEach((page) => page.classList.remove('active'));
   navLinks.forEach((link) => link.classList.remove('active'));
 
@@ -107,6 +117,7 @@ function renderRows(rows) {
 }
 
 function showAdminLogin() {
+  document.documentElement.classList.add("admin-mode");
   document.body.classList.add("admin-mode");
   const template = document.getElementById('adminTemplate');
   const homePage = document.getElementById('page-home');
