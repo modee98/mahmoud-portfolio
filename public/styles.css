@@ -778,3 +778,49 @@ td {
     scroll-behavior: auto !important;
   }
 }
+/* ================================
+   Secret Admin Page - No Scroll Center Fix
+================================ */
+
+/* عند فتح الرابط السري نجعل الصفحة نفسها بدون سكرول */
+body.admin-mode {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* حاوية لوحة الإدارة */
+.admin-shell {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* صندوق كلمة السر */
+.admin-box {
+  width: min(430px, calc(100vw - 32px)) !important;
+  max-width: 430px !important;
+
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* لو ظهرت لوحة الجدول بعد الدخول */
+.admin-table-container {
+  width: min(1080px, calc(100vw - 32px)) !important;
+  max-height: calc(100vh - 40px) !important;
+  overflow: auto !important;
+  margin: 0 !important;
+}
