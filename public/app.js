@@ -7,6 +7,7 @@ const surveyForm = document.getElementById('surveyForm');
 const submitBtn = document.getElementById('submitBtn');
 
 function switchPage(pageId) {
+  document.body.classList.remove("admin-mode");
   pages.forEach((page) => page.classList.remove('active'));
   navLinks.forEach((link) => link.classList.remove('active'));
 
