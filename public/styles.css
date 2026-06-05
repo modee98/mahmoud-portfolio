@@ -824,3 +824,64 @@ body.admin-mode {
   overflow: auto !important;
   margin: 0 !important;
 }
+/* =====================================
+   Admin Secret Page - Final Center Fix
+===================================== */
+
+html.admin-mode,
+body.admin-mode {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* إخفاء شريط التنقل في الصفحة السرية */
+body.admin-mode .navbar {
+  display: none !important;
+}
+
+/* إلغاء أي مسافات قديمة من الصفحات */
+body.admin-mode .page {
+  padding-top: 0 !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* تثبيت واجهة السر في منتصف الشاشة تمامًا */
+body.admin-mode .admin-shell {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+
+  z-index: 99999 !important;
+  box-sizing: border-box !important;
+}
+
+/* صندوق كلمة السر */
+body.admin-mode .admin-box {
+  width: min(430px, calc(100vw - 32px)) !important;
+  max-width: 430px !important;
+
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* جدول الإدارة بعد الدخول */
+body.admin-mode .admin-table-container {
+  width: min(1080px, calc(100vw - 32px)) !important;
+  max-height: calc(100vh - 32px) !important;
+  overflow: auto !important;
+  margin: 0 !important;
+}
